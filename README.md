@@ -2,6 +2,6 @@
 
 _Implement all the data structures and algorithms!_
 
-#### Let's all learn together!
+#### 🙌
 
 Feel free to contribute!
