@@ -61,7 +61,7 @@ struct Node *insert(struct Node *node, int key)
 
 int main()
 {
-    struct Node *tree = NULL;
+    Node *tree = NULL;
     tree = insert(tree, 10);
     insert(tree, 20);
     insert(tree, 30);
