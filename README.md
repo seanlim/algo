@@ -2,4 +2,4 @@
 
 _Implement all the data structures and algorithms!_
 
-#### 🙌Feel free to contribute!
+#### 🙌 Feel free to contribute!
