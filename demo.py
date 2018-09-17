@@ -31,8 +31,11 @@ def main():
 
     (options, _) = parser.parse_args()
 
-    for root, _, files in os.walk("src"):
+    for root, _, files in os.walk("."):
         for file in files:
+            if not file.endswith(".cpp"):
+                continue
+
             execute(f"{root}{os.sep}{file}", options)
 
     try:
