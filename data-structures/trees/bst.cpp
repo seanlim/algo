@@ -22,7 +22,7 @@ struct Node {
 };
 
 // Create new node
-struct Node *newNode(int i) {
+Node *newNode(int i) {
   struct Node *foo = (struct Node *)malloc(sizeof(struct Node));
   foo->key = i;
   foo->left = NULL;
@@ -31,7 +31,7 @@ struct Node *newNode(int i) {
 };
 
 // Inorder traversal
-void inorder(struct Node *root) {
+void inorder(Node *root) {
   if (root != NULL) {
     inorder(root->left);
     printf("%d \n", root->key);
@@ -40,7 +40,7 @@ void inorder(struct Node *root) {
 }
 
 // Create new node
-struct Node *insert(struct Node *node, int key) {
+Node *insert(Node *node, int key) {
   // Create new node
   if (node == NULL)
     return newNode(key);
