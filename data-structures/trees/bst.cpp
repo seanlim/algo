@@ -54,6 +54,43 @@ Node *insert(Node *node, int key) {
   return node;
 }
 
+// Find the min
+Node *minValueNode(Node *node) {
+  Node *current = node;
+  while (current->left != nullptr) {
+    current = current->left;
+  }
+  return current;
+}
+
+// Delete a node
+Node *deleteNode(Node *root, int key) {
+  if (root == nullptr)
+    return root;
+  if (key < root->key)
+    root->left = deleteNode(root->left, key);
+  else if (key > root->key)
+    root->right = deleteNode(root->right, key);
+  else {
+    // One child or no child
+    if (root->left == nullptr) {
+      Node *temp = root->right;
+      free(root);
+      return temp;
+    } else if (root->right == nullptr) {
+      Node *temp = root->left;
+      free(root);
+      return temp;
+    }
+    // Multiple children
+    Node *temp = minValueNode(root->right);
+    root->key = temp->key;
+    root->right = deleteNode(root->right, temp->key);
+  }
+
+  return root;
+}
+
 int main() {
   Node *tree = NULL;
   tree = insert(tree, 10);
@@ -67,5 +104,14 @@ int main() {
   insert(tree, 61);
 
   inorder(tree);
+
+  printf("\nDeleting 30...\n");
+  tree = deleteNode(tree, 30);
+  inorder(tree);
+
+  printf("\nDeleting 50...\n");
+  tree = deleteNode(tree, 50);
+  inorder(tree);
+
   return 0;
 };
