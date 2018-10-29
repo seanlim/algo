@@ -8,10 +8,9 @@ template <class T> struct Node {
 
 template <class T> class List {
   Node<T> *head;
-
-public:
   int length;
 
+public:
   List();
   // ~List();
 
