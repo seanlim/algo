@@ -2,11 +2,11 @@
 #include <iostream>
 
 template <class T> class stack {
-  template <class F> struct Node {
+  struct Node {
     Node *next;
-    F item;
+    T item;
   };
-  Node<T> *top;
+  Node *top;
   int size;
 
 public:
@@ -15,7 +15,7 @@ public:
     size = 0;
   }
   ~stack() {
-    Node<T> *tNode;
+    Node *tNode;
 
     while (top) {
       tNode = top;
@@ -25,7 +25,7 @@ public:
   }
 
   void push(T value) {
-    Node<T> *n = new Node<T>;
+    Node *n = new Node;
     n->item = value;
     n->next = top;
 
@@ -37,7 +37,7 @@ public:
   T pop() {
     if (!isEmpty()) {
       T val = top->item;
-      Node<T> *tNode = top;
+      Node *tNode = top;
       delete top;
       top = tNode->next;
       size -= 1;
