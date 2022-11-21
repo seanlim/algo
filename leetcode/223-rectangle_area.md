@@ -57,17 +57,17 @@ class Solution {
         if (areaB == 0) return areaA;
 
         // check if shapes are contained within each other
-        if (ax1 > bx1 && ax2< bx2 && ay1> by1 && ay2 < by2) {
+        if (ax1>bx1 && ax2<bx2 && ay1>by1 && ay2<by2) {
             return areaB;
         }
-        if (bx1 > ax1 && bx2 < ax2 && by1 > ay1 && by2 < ay2) {
+        if (bx1>ax1 && bx2<ax2 && by1>ay1 && by2<ay2) {
             return areaA;
         }
 
         int sum = areaA + areaB;
 
         // check collision
-        if (ax1 < bx2 && ax2 > bx1 && ay1 < by2 && ay2 > by1) {
+        if (ax1<bx2 && ax2>bx1 && ay1<by2 && ay2>by1) {
             // calculate collision box
             int ix1 = ax1 < bx1 ? bx1: ax1;
             int iy1 = ay1 > by1 ? ay1: by1;
