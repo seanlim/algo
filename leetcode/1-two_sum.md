@@ -30,3 +30,30 @@ class Solution {
     }
 }
 ```
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (nums, target) {
+  const n = nums.map((v, i) => ({ value: v, index: i }));
+  n.sort((a, b) => a.value - b.value);
+  let front = 0,
+    back = n.length - 1;
+  while (back > front) {
+    const b = n[back];
+    const f = n[front];
+    if (b.value + f.value === target) {
+      return [b.index, f.index];
+    } else if (b.value + f.value > target) {
+      back--;
+      continue;
+    } else if (b.value + f.value < target) {
+      front++;
+      continue;
+    }
+  }
+};
+```
