@@ -3,7 +3,7 @@ class Solution(object):
         h = len(grid)
         w = len(grid[0])
 
-        # 4-direction DFS
+        # Recursive BFS
         def explore(i, j):
             grid[i][j] = "X"
             if j+1 < w and grid[i][j+1] == "1":
