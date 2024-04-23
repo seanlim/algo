@@ -3,21 +3,20 @@ class Solution(object):
         h = len(grid)
         w = len(grid[0])
 
-        # Recursive BFS
         def explore(i, j):
             grid[i][j] = "X"
-            if j+1 < w and grid[i][j+1] == "1":
+            if j + 1 < w and grid[i][j + 1] == "1":
                 # move right
-                explore(i, j+1)
-            if j-1 >= 0 and grid[i][j-1] == "1":
+                explore(i, j + 1)
+            if j - 1 >= 0 and grid[i][j - 1] == "1":
                 # move left
-                explore(i, j-1)
-            if i-1 >= 0 and grid[i-1][j] == "1":
+                explore(i, j - 1)
+            if i - 1 >= 0 and grid[i - 1][j] == "1":
                 # move up
-                explore(i-1, j)
-            if i+1 < h and grid[i+1][j] == "1":
+                explore(i - 1, j)
+            if i + 1 < h and grid[i + 1][j] == "1":
                 # move down
-                explore(i+1, j)
+                explore(i + 1, j)
             return
 
         counter = 0
